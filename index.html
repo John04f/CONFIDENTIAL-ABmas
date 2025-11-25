@@ -1,123 +1,114 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Acceso Seguro</title>
   <style>
-    body { font-family: system-ui, Arial, sans-serif; margin: 24px; }
-    .card { max-width: 860px; margin: 0 auto; }
-    form { display: flex; gap: 8px; }
-    input[type="password"] { flex: 1; padding: 10px; }
-    button { padding: 10px 16px; cursor: pointer; }
-    #contenido { display: none; margin-top: 24px; padding: 20px; background: #f5f5f7; border-radius: 12px; }
-    .grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
-    @media (min-width: 700px) { .grid { grid-template-columns: 1fr 1fr; } }
-    .panel { background: white; border-radius: 12px; padding: 16px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
-    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; border:1px solid #ddd; }
+    :root { --bg:#0f172a; --card:#111827; --muted:#94a3b8; --text:#e5e7eb; --accent:#22d3ee; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, Arial, sans-serif; background: var(--bg); color: var(--text); }
+    .wrap { max-width: 900px; margin: 40px auto; padding: 24px; }
+    .card { background: var(--card); border-radius: 14px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+    h1,h2 { margin: 0 0 12px 0; }
+    p { color: var(--muted); }
+    form { display:flex; gap:10px; margin-top: 10px; }
+    input[type="password"] { flex:1; padding:12px 14px; border-radius:10px; border:1px solid #334155; background:#0b1220; color:var(--text); }
+    button { padding:12px 16px; border-radius:10px; border:1px solid #334155; background:#0b1220; color:var(--text); cursor:pointer; }
+    button:hover { border-color: var(--accent); }
+    #contenido { display:none; }
+    .section { margin-top: 20px; padding-top: 12px; border-top: 1px dashed #334155; }
+    ul, ol { margin: 8px 0 0 20px; }
+    code.badge { background:#0b1220; border:1px solid #334155; padding:2px 8px; border-radius:999px; color:var(--accent); font-weight:600; }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Bienvenido</h1>
-    <p>Introduce la contraseña para ver el contenido:</p>
+  <div class="wrap">
+    <div class="card">
+      <h1>Acceso protegido</h1>
+      <p>Introduce la contraseña para ver el contenido.</p>
+      <form id="form" onsubmit="return checkPassword()">
+        <input id="password" name="password" type="password" placeholder="Contraseña" />
+        <button type="submit">Entrar</button>
+      </form>
 
-    <form id="form" onsubmit="return checkPassword()">
-      <input type="password" id="password" name="password" placeholder="Contraseña">
-      <button type="submit">Entrar</button>
-    </form>
+      <div id="contenido" class="section">
+        <h2>PASOS PARA CREAR UNA APP</h2>
+        <ol>
+          <li>Definir funcionalidades básicas.</li>
+          <li>Elegir herramientas y lenguajes de programación.</li>
+          <li>Diseñar la interfaz de usuario.</li>
+          <li>Desarrollar el backend con Django.</li>
+          <li>Desarrollar el frontend con React Native.</li>
+          <li>Integrar pagos con PayPal.</li>
+          <li>Realizar pruebas y debugging.</li>
+          <li>Publicar y mantener la app.</li>
+        </ol>
 
-    <div id="contenido">
-      <h2>Panel privado</h2>
-      <p>Aquí va el contenido secreto. Puedes editar libremente esta sección.</p>
-
-      <div class="grid">
-        <div class="panel">
-          <h3>Texto y enlaces</h3>
+        <div class="section">
+          <h2>PROGRAMAS PARA LA CREACIÓN</h2>
           <ul>
-            <li>PASOS PARA CREAR UNA APP
-1. Definir funcionalidades básicas.
-2. Elegir herramientas y lenguajes de programación.
-3. Diseñar la interfaz de usuario.
-4. Desarrollar el backend con Django.
-5. Desarrollar el frontend con React Native.
-6. Integrar pagos con PayPal.
-7. Realizar pruebas y debugging.
-8. Publicar y mantener la app.
-
-PROGRAMAS PARA LA CREACIÓN
-- React Native (móvil)
-- Python + Django (backend)
-- PayPal (pagos)
-
-LENGUAJES DE PROGRAMACIÓN
-- JavaScript (React Native)
-- Python (backend con Django)
-
-IDENTIDAD DE DESARROLLO
-La app puede desarrollarse y publicarse a nombre de un individuo o de una empresa.
-
-MANTENIMIENTO
-- Actualizaciones
-- Corrección de errores
-- Soporte al usuario
-- Verificación de compatibilidad y seguridad
-
-SOPORTE
-Incluye FAQ y guía básica para usuarios nuevos.
-
-IDENTIDAD DE DESARROLLADOR
-El desarrollador puede iniciar como individuo y más adelante registrar una empresa si lo desea</li>
-            <li>Lista de tareas</li>
-            <li><a href="https://example.com" target="_blank" rel="noopener">Enlace externo</a></li>
+            <li>React Native (móvil)</li>
+            <li>Python + Django (backend)</li>
+            <li>PayPal (pagos)</li>
           </ul>
         </div>
 
-        <div class="panel">
-          <h3>Imagen</h3>
-          <!-- sustituye "assets/imagen.jpg" por tu ruta real -->
-          <img src="assets/imagen.jpg" alt="Imagen privada" style="max-width:100%; border-radius:10px;">
+        <div class="section">
+          <h2>LENGUAJES DE PROGRAMACIÓN</h2>
+          <ul>
+            <li>JavaScript (React Native)</li>
+            <li>Python (backend con Django)</li>
+          </ul>
         </div>
 
-        <div class="panel">
-          <h3>Video (YouTube)</h3>
-          <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;">
-            <iframe
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-              title="Video"
-              style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
-              allowfullscreen></iframe>
-          </div>
+        <div class="section">
+          <h2>IDENTIDAD DE DESARROLLO</h2>
+          <p>La app puede desarrollarse y publicarse a nombre de un individuo o de una empresa.</p>
         </div>
 
-        <div class="panel">
-          <h3>Descarga</h3>
-          <!-- sube docs/manual.pdf al repo y usa esta ruta -->
-          <a class="btn" href="docs/ABmas_documento_ES.pdf" download>Descargar manual (PDF)</a>
+        <div class="section">
+          <h2>MANTENIMIENTO</h2>
+          <ul>
+            <li>Actualizaciones</li>
+            <li>Corrección de errores</li>
+            <li>Soporte al usuario</li>
+            <li>Verificación de compatibilidad y seguridad</li>
+          </ul>
         </div>
+
+        <div class="section">
+          <h2>SOPORTE</h2>
+          <p>Incluye FAQ y guía básica para usuarios nuevos.</p>
+        </div>
+
+        <div class="section">
+          <h2>IDENTIDAD DE DESARROLLADOR</h2>
+          <p>El desarrollador puede iniciar como individuo y más adelante registrar una empresa si lo desea.</p>
+        </div>
+
+        <p class="section"><code class="badge">Contenido desbloqueado</code></p>
       </div>
     </div>
   </div>
 
   <script>
-    function checkPassword() {
-      const pass = document.getElementById("password").value;
-      const real = "EQUIPOABmas"; // tu clave
+    // Cambia la contraseña aquí si deseas otra
+    const REAL_PASSWORD = "EQUIPOABmas";
 
-      if (pass === real) {
+    function checkPassword() {
+      const pass = document.getElementById("password").value.trim();
+      if (pass === REAL_PASSWORD) {
         document.getElementById("contenido").style.display = "block";
-        document.getElementById("form").style.display = "none";   // ocultar el formulario
-        // desplazar al contenido
+        document.getElementById("form").style.display = "none";
         setTimeout(() => document.getElementById("contenido").scrollIntoView({behavior:"smooth"}), 50);
       } else {
         alert("Contraseña incorrecta");
       }
-      return false;
+      return false; // evita recarga
     }
   </script>
 </body>
 </html>
-
-
 
 
