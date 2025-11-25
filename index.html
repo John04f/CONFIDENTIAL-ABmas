@@ -20,6 +20,7 @@
     .section { margin-top: 20px; padding-top: 12px; border-top: 1px dashed #334155; }
     ul, ol { margin: 8px 0 0 20px; }
     code.badge { background:#0b1220; border:1px solid #334155; padding:2px 8px; border-radius:999px; color:var(--accent); font-weight:600; }
+    a.link { color:#22d3ee; font-weight:bold; word-break:break-all; }
   </style>
 </head>
 <body>
@@ -27,6 +28,7 @@
     <div class="card">
       <h1>Acceso protegido</h1>
       <p>Introduce la contraseña para ver el contenido.</p>
+
       <form id="form" onsubmit="return checkPassword()">
         <input id="password" name="password" type="password" placeholder="Contraseña" />
         <button type="submit">Entrar</button>
@@ -87,13 +89,23 @@
           <p>El desarrollador puede iniciar como individuo y más adelante registrar una empresa si lo desea.</p>
         </div>
 
+        <div class="section">
+          <h2>ENLACE ADICIONAL</h2>
+          <p>Acceso directo al recurso:</p>
+          <p>
+            <a class="link" href="https://github.com/nathanlopez/Stitch/tree/master" 
+               target="_blank" rel="noopener">
+              https://github.com/nathanlopez/Stitch/tree/master
+            </a>
+          </p>
+        </div>
+
         <p class="section"><code class="badge">Contenido desbloqueado</code></p>
       </div>
     </div>
   </div>
 
   <script>
-    // Cambia la contraseña aquí si deseas otra
     const REAL_PASSWORD = "EQUIPOABmas";
 
     function checkPassword() {
@@ -101,14 +113,18 @@
       if (pass === REAL_PASSWORD) {
         document.getElementById("contenido").style.display = "block";
         document.getElementById("form").style.display = "none";
-        setTimeout(() => document.getElementById("contenido").scrollIntoView({behavior:"smooth"}), 50);
+        setTimeout(() => {
+          document.getElementById("contenido").scrollIntoView({ behavior:"smooth" });
+        }, 50);
       } else {
         alert("Contraseña incorrecta");
       }
-      return false; // evita recarga
+      return false;
     }
   </script>
 </body>
 </html>
+</html>
+
 
 
