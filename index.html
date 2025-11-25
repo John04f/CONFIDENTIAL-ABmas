@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Acceso Seguro</title>
+    <style>
+        #contenido {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: #f0f0f0;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bienvenido</h1>
+    <p>Introduce la contraseña para ver el contenido:</p>
+
+    <form onsubmit="return checkPassword()">
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password">
+        <button type="submit">Entrar</button>
+    </form>
+
+    <div id="contenido">
+        <h2>Contenido Secreto</h2>
+        <p>Este es el contenido oculto que solo aparece cuando ingresas la contraseña correcta.</p>
+        <p>Puedes poner aquí texto, imágenes, videos o links.</p>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const password = document.getElementById("password").value;
+            const realPassword = "EQUIPOABmas"
+
+            if (password === realPassword) {
+                document.getElementById("contenido").style.display = "block";
+                alert("Acceso concedido");
+            } else {
+                alert("Contraseña incorrecta");
+            }
+
+            return false;
+        }
+    </script>
+
+</body>
+</html>
